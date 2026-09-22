@@ -1,0 +1,138 @@
+/* ========================================
+   illa.com — Design System & Styles
+   Theme: Void / Nothingness / ഇല്ല
+   ======================================== */
+
+:root {
+  --void-black: #060608;
+  --void-deep: #0a0a0f;
+  --void-surface: #111118;
+  --ghost-white: #e8e6f0;
+  --ghost-dim: #8884a0;
+  --accent-violet: #7c5cbf;
+  --accent-violet-glow: rgba(124, 92, 191, 0.3);
+  --accent-indigo: #4a3f8a;
+  --dissolve-1: #b794f6;
+  --dissolve-2: #805ad5;
+  --dissolve-3: #553c9a;
+  --dissolve-4: #322659;
+  --font-main: 'Space Grotesk', sans-serif;
+  --font-malayalam: 'Noto Sans Malayalam', sans-serif;
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--void-black);
+  color: var(--ghost-white);
+  font-family: var(--font-main);
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Background ── */
+#void-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+#bg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Main Stage ── */
+#main-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#text-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Subtitle ── */
+.subtitle {
+  position: absolute;
+  bottom: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  z-index: 2;
+}
+
+.subtitle.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.subtitle .malayalam {
+  font-family: var(--font-malayalam);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: var(--ghost-dim);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 30px var(--accent-violet-glow);
+}
+
+.subtitle .meaning {
+  font-family: var(--font-main);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 300;
+  color: var(--ghost-dim);
+  opacity: 0.5;
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+}
+
+/* ── Restart Hint ── */
+.restart-hint {
+  position: absolute;
+  bottom: 12%;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+  z-index: 2;
+}
+
+.restart-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.restart-hint span {
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  font-weight: 300;
+  color: var(--ghost-dim);
+  opacity: 0.35;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* ── Animations ── */
+@keyframes breathe {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
